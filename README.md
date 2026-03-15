@@ -1,4 +1,9 @@
-# 🐍 Python Mastery Vault
+# Python Mastery Tutorial 🐍
+
+![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Repo Size](https://img.shields.io/github/repo-size/sanaurrehmanarain/python-mastery-vault)
+![Last Commit](https://img.shields.io/github/last-commit/sanaurrehmanarain/python-mastery-vault)
 
 > A structured personal learning repository covering the entire Python ecosystem — from `Hello World` to advanced design patterns.
 
