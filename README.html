@@ -1,0 +1,217 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --py-green:#1D9E75;--py-green-l:#E1F5EE;--py-green-d:#085041;
+  --py-blue:#378ADD;--py-blue-l:#E6F1FB;--py-blue-d:#0C447C;
+  --py-amber:#BA7517;--py-amber-l:#FAEEDA;
+  --py-gray:#888780;--py-gray-l:#F1EFE8;
+  --mono:'DM Mono',monospace;--sans:'Syne',sans-serif;
+}
+body{font-family:var(--sans);color:var(--color-text-primary);background:transparent;padding:0 0 2rem}
+
+.hero{
+  position:relative;overflow:hidden;
+  border-radius:var(--border-radius-lg);
+  background:var(--py-green-d);
+  padding:2.5rem 2rem 2rem;
+  margin-bottom:2rem;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background: repeating-linear-gradient(
+    -45deg,rgba(255,255,255,0.025) 0px,rgba(255,255,255,0.025) 1px,
+    transparent 1px,transparent 14px
+  );
+}
+.hero-snake{
+  position:absolute;right:1.5rem;top:1rem;
+  font-size:72px;line-height:1;opacity:0.15;
+  font-family:serif;
+  animation: bob 4s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-label{
+  font-family:var(--mono);font-size:11px;letter-spacing:0.12em;
+  color:#9FE1CB;text-transform:uppercase;margin-bottom:0.75rem;
+}
+.hero h1{
+  font-size:2rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:0.5rem;
+}
+.hero-sub{font-size:14px;color:#9FE1CB;font-family:var(--mono);font-weight:300;}
+.hero-badge{
+  display:inline-block;margin-top:1.25rem;
+  background:rgba(255,255,255,0.1);border:0.5px solid rgba(255,255,255,0.2);
+  border-radius:20px;padding:4px 14px;
+  font-size:12px;font-family:var(--mono);color:#E1F5EE;
+}
+
+.section-label{
+  font-family:var(--mono);font-size:11px;letter-spacing:0.1em;
+  color:var(--color-text-tertiary);text-transform:uppercase;
+  margin-bottom:0.75rem;padding-left:2px;
+}
+
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:2rem;}
+.stat-card{
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);padding:1rem;text-align:center;
+}
+.stat-num{font-size:26px;font-weight:700;color:var(--color-text-primary);line-height:1;}
+.stat-lbl{font-size:11px;font-family:var(--mono);color:var(--color-text-tertiary);margin-top:4px;}
+
+.modules-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:8px;margin-bottom:2rem;
+}
+.module-card{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;cursor:pointer;
+  transition:border-color 0.15s,transform 0.15s;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.module-card:hover{border-color:var(--color-border-secondary);transform:translateY(-1px);}
+.mod-num{
+  font-family:var(--mono);font-size:10px;
+  background:var(--py-green-l);color:var(--py-green-d);
+  border-radius:4px;padding:2px 6px;font-weight:500;white-space:nowrap;
+  flex-shrink:0;margin-top:1px;
+}
+.mod-title{font-size:13px;font-weight:500;color:var(--color-text-primary);line-height:1.3;}
+.mod-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
+.mod-tag{
+  font-size:10px;font-family:var(--mono);
+  background:var(--py-gray-l);color:var(--py-gray);
+  border-radius:3px;padding:1px 5px;
+}
+
+.highlights-section{
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-lg);
+  padding:1.25rem 1.5rem;margin-bottom:2rem;
+}
+.highlight-row{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:10px;margin-top:0.75rem;
+}
+.hl-card{
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-left:3px solid var(--py-green);
+  border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding:10px 12px;
+}
+.hl-card h4{font-size:13px;font-weight:500;margin-bottom:4px;color:var(--color-text-primary);}
+.hl-card p{font-size:12px;font-family:var(--mono);color:var(--color-text-secondary);font-weight:300;line-height:1.4;}
+.hl-card code{
+  font-family:var(--mono);font-size:11px;
+  background:var(--py-green-l);color:var(--py-green-d);
+  border-radius:3px;padding:0 4px;
+}
+
+.how-section{margin-bottom:1rem;}
+.steps-list{display:flex;flex-direction:column;gap:8px;margin-top:0.75rem;}
+.step{
+  display:flex;align-items:flex-start;gap:12px;
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-md);
+  padding:10px 14px;
+}
+.step-num{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  background:var(--py-blue-l);color:var(--py-blue-d);
+  border-radius:50%;width:22px;height:22px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.step-body{}
+.step-title{font-size:13px;font-weight:500;margin-bottom:2px;}
+.step-code{
+  font-family:var(--mono);font-size:11px;font-weight:300;
+  color:var(--color-text-secondary);
+  background:var(--color-background-secondary);
+  border-radius:3px;padding:2px 6px;display:inline-block;margin-top:4px;
+}
+
+.footer{
+  text-align:center;padding-top:1.25rem;
+  border-top:0.5px solid var(--color-border-tertiary);
+}
+.footer p{font-size:12px;font-family:var(--mono);color:var(--color-text-tertiary);font-weight:300;}
+.footer a{color:var(--py-green);text-decoration:none;}
+</style>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-snake">🐍</div>
+  <div class="hero-label">Learning Repository</div>
+  <h1>Python Mastery<br>Vault</h1>
+  <div class="hero-sub">From Hello World → Advanced Design Patterns</div>
+  <span class="hero-badge">python 3.8+  ·  21 modules  ·  ongoing</span>
+</div>
+
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="stat-num">21</div>
+    <div class="stat-lbl">modules</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">4</div>
+    <div class="stat-lbl">advanced topics</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">.py</div>
+    <div class="stat-lbl">+ .ipynb</div>
+  </div>
+</div>
+
+<div class="section-label">📂 Modules</div>
+<div class="modules-grid">
+  <div class="module-card"><span class="mod-num">01</span><div><div class="mod-title">Data Types</div><div class="mod-tags"><span class="mod-tag">str</span><span class="mod-tag">int</span><span class="mod-tag">casting</span></div></div></div>
+  <div class="module-card"><span class="mod-num">02</span><div><div class="mod-title">Variables</div><div class="mod-tags"><span class="mod-tag">assignment</span><span class="mod-tag">memory</span></div></div></div>
+  <div class="module-card"><span class="mod-num">03</span><div><div class="mod-title">Boolean Logic</div><div class="mod-tags"><span class="mod-tag">operators</span><span class="mod-tag">truth tables</span></div></div></div>
+  <div class="module-card"><span class="mod-num">04</span><div><div class="mod-title">Built-in Methods</div><div class="mod-tags"><span class="mod-tag">str helpers</span><span class="mod-tag">numeric</span></div></div></div>
+  <div class="module-card"><span class="mod-num">05</span><div><div class="mod-title">Lists</div><div class="mod-tags"><span class="mod-tag">creation</span><span class="mod-tag">methods</span></div></div></div>
+  <div class="module-card"><span class="mod-num">06</span><div><div class="mod-title">Indexing & Slicing</div><div class="mod-tags"><span class="mod-tag">sequences</span><span class="mod-tag">step</span></div></div></div>
+  <div class="module-card"><span class="mod-num">07</span><div><div class="mod-title">Dictionaries</div><div class="mod-tags"><span class="mod-tag">key-value</span><span class="mod-tag">JSON-like</span></div></div></div>
+  <div class="module-card"><span class="mod-num">08</span><div><div class="mod-title">Sets</div><div class="mod-tags"><span class="mod-tag">uniqueness</span><span class="mod-tag">unions</span></div></div></div>
+  <div class="module-card"><span class="mod-num">09</span><div><div class="mod-title">Tuples</div><div class="mod-tags"><span class="mod-tag">immutable</span><span class="mod-tag">unpacking</span></div></div></div>
+  <div class="module-card"><span class="mod-num">10</span><div><div class="mod-title">Conditionals</div><div class="mod-tags"><span class="mod-tag">if/elif/else</span><span class="mod-tag">match-case</span></div></div></div>
+  <div class="module-card"><span class="mod-num">11</span><div><div class="mod-title">Loops</div><div class="mod-tags"><span class="mod-tag">for</span><span class="mod-tag">while</span><span class="mod-tag">nested</span></div></div></div>
+  <div class="module-card"><span class="mod-num">12</span><div><div class="mod-title">Functions & Recursion</div><div class="mod-tags"><span class="mod-tag">scope</span><span class="mod-tag">UDFs</span></div></div></div>
+  <div class="module-card"><span class="mod-num">13</span><div><div class="mod-title">Exceptions</div><div class="mod-tags"><span class="mod-tag">try/except</span><span class="mod-tag">finally</span></div></div></div>
+  <div class="module-card"><span class="mod-num">14</span><div><div class="mod-title">File I/O</div><div class="mod-tags"><span class="mod-tag">read/write</span><span class="mod-tag">with</span></div></div></div>
+  <div class="module-card"><span class="mod-num">15</span><div><div class="mod-title">Regular Expressions</div><div class="mod-tags"><span class="mod-tag">re module</span><span class="mod-tag">patterns</span></div></div></div>
+  <div class="module-card"><span class="mod-num">16</span><div><div class="mod-title">OOP</div><div class="mod-tags"><span class="mod-tag">classes</span><span class="mod-tag">inheritance</span></div></div></div>
+  <div class="module-card"><span class="mod-num">17</span><div><div class="mod-title">Modules & Libraries</div><div class="mod-tags"><span class="mod-tag">pip</span><span class="mod-tag">stdlib</span></div></div></div>
+  <div class="module-card"><span class="mod-num">18</span><div><div class="mod-title">Unit Testing</div><div class="mod-tags"><span class="mod-tag">unittest</span><span class="mod-tag">pytest</span></div></div></div>
+  <div class="module-card"><span class="mod-num" style="background:var(--py-amber-l);color:var(--py-amber);">19</span><div><div class="mod-title">Et Cetera — Advanced</div><div class="mod-tags"><span class="mod-tag">decorators</span><span class="mod-tag">generators</span></div></div></div>
+  <div class="module-card"><span class="mod-num">20</span><div><div class="mod-title">User Input & Errors</div><div class="mod-tags"><span class="mod-tag">CLI</span><span class="mod-tag">interactive</span></div></div></div>
+  <div class="module-card"><span class="mod-num">21</span><div><div class="mod-title">Namespace & Scope</div><div class="mod-tags"><span class="mod-tag">LEGB</span><span class="mod-tag">global</span></div></div></div>
+</div>
+
+<div class="highlights-section">
+  <div class="section-label" style="margin-bottom:0">🚀 Advanced highlights — folder 19</div>
+  <div class="highlight-row">
+    <div class="hl-card"><h4>Decorators</h4><p>Enhance function behavior without modifying source</p></div>
+    <div class="hl-card"><h4>Generators</h4><p>Memory-efficient sequences with <code>yield</code></p></div>
+    <div class="hl-card"><h4>Walrus Operator</h4><p>Assignment expressions introduced in Python <code>3.8</code></p></div>
+    <div class="hl-card"><h4>Type Hinting</h4><p>Improves readability &amp; catches errors early</p></div>
+  </div>
+</div>
+
+<div class="how-section">
+  <div class="section-label">🛠 How to use</div>
+  <div class="steps-list">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Clone the repository</div><div class="step-code">git clone https://github.com/sanaurrehmanarain/python-mastery-vault.git</div></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Explore folders</div><div class="step-code">cd python-mastery-vault/ &amp;&amp; ls</div></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Run examples</div><div class="step-code">python 01_data_types/examples.py</div></div></div>
+  </div>
+</div>
+
+<div class="footer" style="margin-top:1.5rem">
+  <p>Created with ❤️ to document the path to becoming a Python Developer</p>
+</div>
